@@ -6,7 +6,6 @@ import { observer } from 'mobx-react'
 export const BookList = observer(({store}) => {
    
     let data = store.data ;
-    data && console.log(data.map(i=>i))
     return data ? <div style={{width:1000 , margin : "auto"}}>
         
                     <Table striped>
@@ -25,7 +24,8 @@ export const BookList = observer(({store}) => {
                                                             date={item.date} 
                                                             title={item.title} 
                                                             order={++i} 
-                                                            onDelete={store.deleteBook}/>)}
+                                                            onDelete={store.deleteBook}
+                                                            updateOrAdd={store.updateOrAdd}/>)}
                         </tbody>
                     </Table>
             </div> : null

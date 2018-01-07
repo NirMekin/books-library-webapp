@@ -1,5 +1,7 @@
 
-
+/*
+    API working with the service "Books-Library-Server"
+*/
 
 class API{
 
@@ -19,6 +21,8 @@ class API{
 
     saveFile(str){
         return new Promise((resolve,reject) => {
+            var data = new FormData();
+            data.append('str', str);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState === 4 && this.status === 200) {
@@ -26,9 +30,8 @@ class API{
             }
             };
             xhttp.open("POST", "http://localhost:3000/savejson", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            console.log(str)
-            xhttp.send(str);
+            xhttp.setRequestHeader('Content-type', 'application/json')
+            xhttp.send(JSON.stringify({str}));
         })
         
     
