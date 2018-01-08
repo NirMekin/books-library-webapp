@@ -13,7 +13,7 @@ class API{
                 resolve(JSON.parse(xhttp.responseText))
             }
             };
-            xhttp.open("GET", "http://localhost:3000/", true);
+            xhttp.open("GET", "https://nir-books-library-2018.herokuapp.com/getbooks", true);
             xhttp.send();
         })
         
@@ -29,7 +29,7 @@ class API{
                 resolve(JSON.parse(xhttp.responseText))
             }
             };
-            xhttp.open("POST", "http://localhost:3000/savejson", true);
+            xhttp.open("POST", "https://nir-books-library-2018.herokuapp.com/savejson", true);
             xhttp.setRequestHeader('Content-type', 'application/json')
             xhttp.send(JSON.stringify({str}));
         })

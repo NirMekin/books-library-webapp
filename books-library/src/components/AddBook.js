@@ -7,7 +7,7 @@ const addButton = 'https://www.shareicon.net/data/2016/08/18/809318_add_512x512.
 export const AddBook = observer(({store}) => {
     let data = store.data;
     return <div>
-        <AddBookButton titles={data && data.map(i => { return { title : i.title} })}
+        <AddBookButton titles={data && data.map(i => { return  i.title })}
                         saveNewBook={store.updateOrAdd}/>
     </div>
 })
@@ -40,6 +40,7 @@ class AddBookButton extends React.Component{
         if(this.props.titles.includes(e.target.title.value) || e.target.title.value.length === 0){
             errorMsg.push("Title is not valid");
         }
+        console.log(this.props.titles , e.target.title.value)
         if(!e.target.autuor.value){
             errorMsg.push("Autuor can't be empty string");
         }
