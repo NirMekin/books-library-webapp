@@ -42,7 +42,7 @@ class BookForm extends React.Component{
         }
 
         if(!e.target.date.value )
-            errorMsg.push('Error, Please enter valid date')
+            newData.date = this.props.date
         else{
             let getDate = e.target.date.value.replace(/-/g,"");
             if(getDate > currentDate)
@@ -64,7 +64,7 @@ class BookForm extends React.Component{
 
     render(){
         const {errorMode} = this.state
-        const { autuor , title , date } = this.props
+        const { autuor , title } = this.props
         return(
             <Modal isOpen={true} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle}>Edit Book - {title}</ModalHeader>
@@ -156,7 +156,7 @@ export class Book extends React.Component{
                         <div><b>"{title}"</b> from {tempDate} <sub>by {autuor}</sub></div>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="danger" onClick={this.toggle}  onClick={this.onDelete}>Delete</Button>{' '}
+                        <Button color="danger"  onClick={this.onDelete}>Delete</Button>{' '}
                         <Button color="info" onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                     </Modal>
